@@ -10,14 +10,15 @@ export default function UserProfile() {
   const email = session.data?.user?.email!;
 
   return (
-    <div className="flex items-center justify-start gap-1 lg:gap-2 m-0 p-0 lg:px-3 lg:w-full">
+    // <div className="flex items-center justify-start gap-1 lg:gap-2 m-0 p-0 lg:px-3 lg:w-full">
+    <div className="flex items-center justify-start gap-1 lg:gap-2 m-0 p-0 lg:w-full">
       {imageUrl && (
         <Image
           src={imageUrl}
           className="rounded-full"
           alt={`${name} profile picture`}
-          width={100}
-          height={100}
+          width={50}
+          height={50}
         />
       )}
       <div className="flex flex-col items-start justify-center">

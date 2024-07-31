@@ -47,7 +47,6 @@ export default function MobileNav() {
               className="rounded-full shrink-0 md:hidden"
             >
               <Menu className="h-5 w-5" />
-              {/* <UserProfile /> */}
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
           </SheetTrigger>
