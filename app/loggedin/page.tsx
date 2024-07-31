@@ -1,15 +1,16 @@
-import { Button } from "@/components/ui/button";
-import Tasks from "@/components/inventorysm/tasks";
-import UserProfile from "@/components/inventorysm/user-profile";
 import SideBar from "@/components/nav/side-bar";
+import MobileNav from "@/components/nav/mobile-nav";
 
 export default function Home() {
   return (
-    <div>
+    <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
       <SideBar />
-      {/* <h1 className="text-6xl font-bold">Dashboard</h1> */}
-      {/* <UserProfile /> */}
-      {/* <Tasks /> */}
+      <div className="flex flex-col">
+        <MobileNav />
+        <main className="flex flex-1 flex-col gap-4 p-4 lg:px-8">
+          {/* <Tasks /> */}
+        </main>
+      </div>
     </div>
   );
 }
