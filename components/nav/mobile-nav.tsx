@@ -52,13 +52,12 @@ export default function MobileNav() {
           </SheetTrigger>
           <SheetContent side="left" className="flex flex-col bg-muted">
             <nav className="grid gap-2 text-lg font-medium">
+              <span className="sr-only">Ali Inc</span>
+              <UserProfile />
               <Link
                 href="#"
                 className="flex items-center gap-2 text-lg font-semibold"
-              >
-                <UserProfile />
-                <span className="sr-only">Ali Inc</span>
-              </Link>
+              ></Link>
 
               {primaryNavItems.map(({ icon, name, link }, idx) => (
                 <Link
