@@ -18,6 +18,11 @@ export const primaryNavItems = [
       link:  '/loggedin'
     },
     {
+      icon: <Package className="h-4 w-4" />,
+      name: 'Companies',
+      link:  '/loggedin/companies'
+    },
+    {
       icon: <ShoppingCart className="h-4 w-4" />,
       name: 'Orders',
       link:  '/loggedin/orders'

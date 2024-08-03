@@ -72,8 +72,12 @@ const authTables = {
 
 export default defineSchema({
   ...authTables,
-  tasks: defineTable({
-    isCompleted: v.boolean(),
-    text: v.string(),
-  }),
+  companies: defineTable({
+    userId: v.id("users"),
+    companyName: v.string(),
+    companyDescription: v.optional(v.string()),
+    companyLogo: v.optional(v.string()),
+  })
+    .index("userId", ["userId"])
+    .index("companyName", ["companyName"]),
 });
