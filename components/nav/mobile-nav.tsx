@@ -107,7 +107,8 @@ export default function MobileNav({ title }: MobileNavProps) {
         </div>
       </header>
         <div className="flex items-center">
-          <h1 className="text-lg ml-2 mt-2 font-semibold md:text-2xl lg:text-3xl">{title}</h1>
+          {/* <h1 className="text-lg lg:px-6 font-semibold md:text-2xl lg:text-3xl">{title}</h1> */}
+          <h1 className="flex text-lg font-semibold  md:text-2xl h-14 items-center gap-4  px-4 lg:h-[60px] lg:px-6 w-full">{title}</h1>
         </div>
     </div>
   );
