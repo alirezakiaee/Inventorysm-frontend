@@ -10,7 +10,11 @@ import {
   Settings,
   ShoppingCart,
   Users,
-  Folder
+  Folder,
+  Factory,
+  TextSelect,
+  MapPin,
+  Container
 } from "lucide-react"
 
 export const primaryNavItems = [
@@ -20,7 +24,7 @@ export const primaryNavItems = [
       link:  '/loggedin'
     },
     {
-      icon: <Package className="h-4 w-4" />,
+      icon: <TextSelect className="h-4 w-4" />,
       name: 'AI Analytics',
       link:  '/loggedin/ai'
     },
@@ -41,13 +45,23 @@ export const primaryNavItems = [
       link:  '/loggedin/settings',
       subMenu: [
         {
-          icon: <Home className="h-4 w-4" />,
+          icon: <Factory className="h-4 w-4" />,
           name: 'Companies',
           link: '/loggedin/settings/companies',
         },
         {
-          icon: <Folder className="h-4 w-4" />,
-          name: 'Product Categories',
+          icon: <MapPin className="h-4 w-4" />,
+          name: 'Company locations',
+          link: '/loggedin/settings/companies',
+        },
+        {
+          icon: <Container className="h-4 w-4" />,
+          name: 'Suppliers',
+          link: '/loggedin/settings/companies',
+        },
+        {
+          icon: <Package className="h-4 w-4" />,
+          name: 'Products',
           link: '/loggedin/settings/product-categories',
         }
       ]

@@ -50,7 +50,7 @@ export default function UserSettings() {
     switch (selectedSubMenu) {
       case 'Companies':
         return <CompanyList />;
-      case 'Product Categories':
+      case 'Products':
         return <ProductCategories />;
       default:
         return <div>Please select a setting from the menu.</div>;
