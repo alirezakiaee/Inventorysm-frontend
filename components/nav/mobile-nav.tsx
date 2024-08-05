@@ -106,10 +106,28 @@ export default function MobileNav({ title }: MobileNavProps) {
           </form>
         </div>
       </header>
+      {/* <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
         <div className="flex items-center">
-          {/* <h1 className="text-lg lg:px-6 font-semibold md:text-2xl lg:text-3xl">{title}</h1> */}
-          <h1 className="flex text-lg font-semibold  md:text-2xl h-14 items-center gap-4  px-4 lg:h-[60px] lg:px-6 w-full">{title}</h1>
+          <h1 className="text-lg font-semibold md:text-2xl">Inventory</h1>
         </div>
+        <div
+          className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm"
+          x-chunk="dashboard-02-chunk-1"
+        >
+          <div className="flex flex-col items-center gap-1 text-center">
+            <h3 className="text-2xl font-bold tracking-tight">
+              You have no products
+            </h3>
+            <p className="text-sm text-muted-foreground">
+              You can start selling as soon as you add a product.
+            </p>
+            <Button className="mt-4">Add Product</Button>
+          </div>
+        </div>
+      </main> */}
+      <div className="flex flex-1 flex-col gap-4 p-4 lg:px-8">
+        <h1 className="text-lg font-semibold md:text-2xl">{title}</h1>
+      </div>
     </div>
   );
 }
