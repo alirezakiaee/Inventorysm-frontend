@@ -41,6 +41,7 @@ import {
 import CompanyList from "../companies/company-list";
 import ProductCategories from "../productCategories/product-categories"; // Make sure to import the component for Product Categories
 import { primaryNavItems } from "@/utils";
+import CompanyLocations from "../companyLocations/company-locations";
 
 export default function UserSettings() {
   const [selectedSubMenu, setSelectedSubMenu] = useState('Companies');
@@ -52,6 +53,8 @@ export default function UserSettings() {
         return <CompanyList />;
       case 'Products':
         return <ProductCategories />;
+      case 'Company locations':
+        return <CompanyLocations />;
       default:
         return <div>Please select a setting from the menu.</div>;
     }

@@ -80,4 +80,22 @@ export default defineSchema({
   })
     .index("userId", ["userId"])
     .index("companyName", ["companyName"]),
+  companyLocations: defineTable({
+    userId: v.id("users"),
+    companyId: v.id("companies"),
+    companyName: v.optional(v.string()),
+    country: v.optional(v.string()),
+    city: v.optional(v.string()),
+    state: v.optional(v.string()),
+    zipCode: v.optional(v.string()),
+    phone: v.float64(),
+    address: v.optional(v.string()),
+    address2: v.optional(v.string()),
+    tax: v.optional(v.float64()),
+    email: v.optional(v.string()),
+    website: v.optional(v.string()),
+    extraDescriptions: v.optional(v.string()),
+  })
+    .index("userId", ["userId"])
+    .index("companyName", ["companyName"]),
 });

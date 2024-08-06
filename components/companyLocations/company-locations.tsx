@@ -38,14 +38,14 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-export default function CompanyList() {
-  const companies = useQuery(api.companies.get) ?? [];
+export default function CompanyLocations() {
+  const companies = useQuery(api.companyLocations.get) ?? [];
 
   if (companies === undefined) return <div>Loading...</div>;
 
   return (
     <div className="row-span-2 border border-dashed rounded-lg shadow-sm p-4 min-h-screen">
-      <main>
+      <main className="overflow-x-auto w-[1000px]">
         <Tabs defaultValue="all">
           <div className="flex items-center">
             <TabsList>
@@ -93,20 +93,26 @@ export default function CompanyList() {
           <TabsContent value="all">
             <Card x-chunk="dashboard-06-chunk-0">
               <CardHeader>
-                <CardTitle>Companies</CardTitle>
+                <CardTitle>Company locations</CardTitle>
                 <CardDescription>
-                  Manage your companies and view their sales performance.
+                  Manage your company locations.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead className="hidden w-[100px] sm:table-cell">
-                        <span className="sr-only">Logo</span>
-                      </TableHead>
                       <TableHead>Company Name</TableHead>
-                      <TableHead>Description</TableHead>
+                      <TableHead>Country</TableHead>
+                      <TableHead>City</TableHead>
+                      <TableHead>State</TableHead>
+                      <TableHead>Zip Code</TableHead>
+                      <TableHead>Phone</TableHead>
+                      <TableHead>Address</TableHead>
+                      <TableHead>Tax</TableHead>
+                      <TableHead>Email</TableHead>
+                      <TableHead>Website</TableHead>
+                      <TableHead>Extra Descriptions</TableHead>
                       <TableHead>
                         <span className="sr-only">Actions</span>
                       </TableHead>
@@ -115,24 +121,36 @@ export default function CompanyList() {
                   <TableBody>
                     {companies.map(
                       (
-                        { companyName, companyLogo, companyDescription },
+                        {
+                          companyName,
+                          country,
+                          city,
+                          state,
+                          zipCode,
+                          phone,
+                          address,
+                          tax,
+                          email,
+                          website,
+                          extraDescriptions,
+                        },
                         idx
                       ) => (
                         <TableRow key={idx}>
-                          <TableCell className="hidden sm:table-cell">
-                            <Image
-                              alt={`${companyName} logo`}
-                              className="aspect-square rounded-md object-cover"
-                              height="64"
-                              src={companyLogo || "/placeholder.svg"}
-                              width="64"
-                            />
-                          </TableCell>
                           <TableCell className="font-medium">
                             {companyName}
                           </TableCell>
+                          <TableCell>{country || "N/A"}</TableCell>
+                          <TableCell>{city || "N/A"}</TableCell>
+                          <TableCell>{state || "N/A"}</TableCell>
+                          <TableCell>{zipCode || "N/A"}</TableCell>
+                          <TableCell>{phone || "N/A"}</TableCell>
+                          <TableCell>{address || "N/A"}</TableCell>
+                          <TableCell>{tax || "N/A"}%</TableCell>
+                          <TableCell>{email || "N/A"}</TableCell>
+                          <TableCell>{website || "N/A"}</TableCell>
                           <TableCell>
-                            {companyDescription || "No description available"}
+                            {extraDescriptions || "N/A"}
                           </TableCell>
                           <TableCell>
                             <DropdownMenu>
