@@ -23,7 +23,7 @@ export const accountSchema = {
     v.literal("email"),
     v.literal("oidc"),
     v.literal("oauth"),
-    v.literal("webauthn"),
+    v.literal("webauthn")
   ),
   provider: v.string(),
   providerAccountId: v.string(),
@@ -63,7 +63,7 @@ const authTables = {
     .index("userId", ["userId"]),
   verificationTokens: defineTable(verificationTokenSchema).index(
     "identifierToken",
-    ["identifier", "token"],
+    ["identifier", "token"]
   ),
   authenticators: defineTable(authenticatorSchema)
     .index("userId", ["userId"])
@@ -79,7 +79,8 @@ export default defineSchema({
     companyLogo: v.optional(v.string()),
   })
     .index("userId", ["userId"])
-    .index("companyName", ["companyName"]),
+    .index("companyName", ["companyName"])
+    .index("uniqueCompany", ["userId", "companyName"]),
   companyLocations: defineTable({
     userId: v.id("users"),
     companyId: v.id("companies"),
@@ -97,5 +98,21 @@ export default defineSchema({
     extraDescriptions: v.optional(v.string()),
   })
     .index("userId", ["userId"])
-    .index("companyName", ["companyName"]),
+    .index("companyName", ["companyName"])
+    .index("uniqueLocation", ["userId", "companyId", "city"]),
+  suppliers: defineTable({
+    userId: v.id("users"),
+    supplierName: v.string(),
+    supplierEmail: v.optional(v.string()),
+    supplierAddress: v.optional(v.string()),
+    supplierCountry: v.optional(v.string()),
+    supplierCity: v.optional(v.string()),
+    supplierState: v.optional(v.string()),
+    supplierZipCode: v.optional(v.string()),
+    supplierPhone: v.float64(),
+    supplierTax: v.optional(v.float64()),
+    supplierWebsite: v.optional(v.string()),
+  })
+    .index("userId", ["userId"])
+    .index("uniqueSupplier", ["userId", "supplierName"]),
 });

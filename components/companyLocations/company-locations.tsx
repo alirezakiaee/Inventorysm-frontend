@@ -85,7 +85,7 @@ export default function CompanyLocations() {
               <Button size="sm" className="h-8 gap-1">
                 <PlusCircle className="h-3.5 w-3.5" />
                 <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-                  Add Product
+                  Add Location
                 </span>
               </Button>
             </div>
@@ -149,9 +149,7 @@ export default function CompanyLocations() {
                           <TableCell>{tax || "N/A"}%</TableCell>
                           <TableCell>{email || "N/A"}</TableCell>
                           <TableCell>{website || "N/A"}</TableCell>
-                          <TableCell>
-                            {extraDescriptions || "N/A"}
-                          </TableCell>
+                          <TableCell>{extraDescriptions || "N/A"}</TableCell>
                           <TableCell>
                             <DropdownMenu>
                               <DropdownMenuTrigger asChild>

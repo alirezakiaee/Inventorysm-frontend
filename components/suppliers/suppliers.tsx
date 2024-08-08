@@ -38,14 +38,14 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-export default function CompanyList() {
-  const companies = useQuery(api.companies.get) ?? [];
+export default function SuppliersList() {
+  const companies = useQuery(api.suppliers.get) ?? [];
 
   if (companies === undefined) return <div>Loading...</div>;
 
   return (
     <div className="row-span-2 border border-dashed rounded-lg shadow-sm p-4 min-h-screen">
-      <main>
+      <main className="overflow-x-auto w-[1000px]">
         <Tabs defaultValue="all">
           <div className="flex items-center">
             <TabsList>
@@ -85,7 +85,7 @@ export default function CompanyList() {
               <Button size="sm" className="h-8 gap-1">
                 <PlusCircle className="h-3.5 w-3.5" />
                 <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-                  Add Company
+                  Add Supplier
                 </span>
               </Button>
             </div>
@@ -93,20 +93,23 @@ export default function CompanyList() {
           <TabsContent value="all">
             <Card x-chunk="dashboard-06-chunk-0">
               <CardHeader>
-                <CardTitle>Companies</CardTitle>
-                <CardDescription>
-                  Manage your companies and view their sales performance.
-                </CardDescription>
+                <CardTitle>Suppliers</CardTitle>
+                <CardDescription>Manage your suppliers.</CardDescription>
               </CardHeader>
               <CardContent>
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead className="hidden w-[100px] sm:table-cell">
-                        <span className="sr-only">Logo</span>
-                      </TableHead>
-                      <TableHead>Company Name</TableHead>
-                      <TableHead>Description</TableHead>
+                      <TableHead>Name</TableHead>
+                      <TableHead>Email</TableHead>
+                      <TableHead>Address</TableHead>
+                      <TableHead>Country</TableHead>
+                      <TableHead>City</TableHead>
+                      <TableHead>State</TableHead>
+                      <TableHead>Zip Code</TableHead>
+                      <TableHead>Phone</TableHead>
+                      <TableHead>Tax</TableHead>
+                      <TableHead>Website</TableHead>
                       <TableHead>
                         <span className="sr-only">Actions</span>
                       </TableHead>
@@ -115,25 +118,33 @@ export default function CompanyList() {
                   <TableBody>
                     {companies.map(
                       (
-                        { companyName, companyLogo, companyDescription },
+                        {
+                          supplierName,
+                          supplierEmail,
+                          supplierAddress,
+                          supplierCountry,
+                          supplierCity,
+                          supplierState,
+                          supplierZipCode,
+                          supplierPhone,
+                          supplierTax,
+                          supplierWebsite,
+                        },
                         idx
                       ) => (
                         <TableRow key={idx}>
-                          <TableCell className="hidden sm:table-cell">
-                            <Image
-                              alt={`${companyName} logo`}
-                              className="aspect-square rounded-md object-cover"
-                              height="64"
-                              src={companyLogo || "/placeholder.svg"}
-                              width="64"
-                            />
-                          </TableCell>
                           <TableCell className="font-medium">
-                            {companyName}
+                            {supplierName || "N/A"}
                           </TableCell>
-                          <TableCell>
-                            {companyDescription || "No description available"}
-                          </TableCell>
+                          <TableCell>{supplierEmail || "N/A"}</TableCell>
+                          <TableCell>{supplierAddress || "N/A"}</TableCell>
+                          <TableCell>{supplierCountry || "N/A"}</TableCell>
+                          <TableCell>{supplierCity || "N/A"}</TableCell>
+                          <TableCell>{supplierState || "N/A"}</TableCell>
+                          <TableCell>{supplierZipCode || "N/A"}</TableCell>
+                          <TableCell>{supplierPhone || "N/A"}</TableCell>
+                          <TableCell>{supplierTax || "N/A"}%</TableCell>
+                          <TableCell>{supplierWebsite || "N/A"}</TableCell>
                           <TableCell>
                             <DropdownMenu>
                               <DropdownMenuTrigger asChild>

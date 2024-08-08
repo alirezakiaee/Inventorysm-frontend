@@ -42,19 +42,22 @@ import CompanyList from "../companies/company-list";
 import ProductCategories from "../productCategories/product-categories"; // Make sure to import the component for Product Categories
 import { primaryNavItems } from "@/utils";
 import CompanyLocations from "../companyLocations/company-locations";
+import SuppliersList from "../suppliers/suppliers";
 
 export default function UserSettings() {
-  const [selectedSubMenu, setSelectedSubMenu] = useState('Companies');
-  const settingsItem = primaryNavItems.find(item => item.name === 'Settings');
+  const [selectedSubMenu, setSelectedSubMenu] = useState("Companies");
+  const settingsItem = primaryNavItems.find((item) => item.name === "Settings");
 
   const renderContent = () => {
     switch (selectedSubMenu) {
-      case 'Companies':
+      case "Companies":
         return <CompanyList />;
-      case 'Products':
+      case "Products":
         return <ProductCategories />;
-      case 'Company locations':
+      case "Company locations":
         return <CompanyLocations />;
+      case "Suppliers":
+        return <SuppliersList />;
       default:
         return <div>Please select a setting from the menu.</div>;
     }
@@ -85,9 +88,7 @@ export default function UserSettings() {
               </div>
             )}
           </nav>
-          <div className="w-full">
-            {renderContent()}
-          </div>
+          <div className="w-full">{renderContent()}</div>
         </div>
       </main>
     </div>

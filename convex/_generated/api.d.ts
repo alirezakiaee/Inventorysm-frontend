@@ -19,6 +19,7 @@ import type * as companies from "../companies.js";
 import type * as companyLocations from "../companyLocations.js";
 import type * as generateKeys from "../generateKeys.js";
 import type * as http from "../http.js";
+import type * as suppliers from "../suppliers.js";
 import type * as tasks from "../tasks.js";
 
 /**
@@ -35,6 +36,7 @@ declare const fullApi: ApiFromModules<{
   companyLocations: typeof companyLocations;
   generateKeys: typeof generateKeys;
   http: typeof http;
+  suppliers: typeof suppliers;
   tasks: typeof tasks;
 }>;
 export declare const api: FilterApi<
